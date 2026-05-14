@@ -4,7 +4,7 @@ export default function Footer() {
       className="container w-full mx-auto bg-surface-container-lowest dark:bg-surface-container-low border-t border-outline-variant/20 mt-auto"
       suppressHydrationWarning
     >
-      <div className="flex flex-col md:flex-row-reverse justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-8 gap-gutter max-w-container-max mx-auto">
+      <div className="flex flex-col md:flex-row-reverse justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-8 gap-6 max-w-container-max mx-auto">
         <div className="text-label-md text-primary font-bold">
           © ٢٠٢٦ البوابة المعرفية العسكرية. جميع الحقوق محفوظة.
         </div>

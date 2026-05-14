@@ -13,7 +13,7 @@ export async function GET() {
     });
   }
   try {
-    const [row] = await sql`SELECT id, title, message, type, link, created_at FROM announcements ORDER BY id DESC LIMIT 1`;
+    const [row] = await sql`SELECT id, title, message, type, link, link_label FROM announcements ORDER BY id DESC LIMIT 1`;
     const result = row ?? null;
     cachedData = result;
     cachedTimestamp = now;

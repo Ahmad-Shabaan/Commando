@@ -1,4 +1,4 @@
-import { Info, TriangleAlert, CheckCircle, ChevronLeft } from "lucide-react";
+import { BellRing, TriangleAlert, CheckCircle, ChevronLeft } from "lucide-react";
 
 interface Announcement {
   id: number;
@@ -6,6 +6,7 @@ interface Announcement {
   message: string;
   type: "info" | "warning" | "success";
   link: string | null;
+  link_label: string | null;
 }
 
 const typeStyles = {
@@ -14,7 +15,7 @@ const typeStyles = {
     border: "border-primary",
     iconBg: "bg-primary/10",
     iconColor: "text-primary",
-    Icon: Info,
+    Icon: BellRing,
   },
   warning: {
     bg: "bg-amber-50 dark:bg-amber-950/20",
@@ -52,10 +53,9 @@ export default async function AnnouncementBanner() {
 
   const styles = typeStyles[announcement.type] ?? typeStyles.info;
   const { Icon } = styles;
-
   return (
     <section className="w-full bg-background py-8">
-      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+      <div className="container w-full mx-auto px-margin-mobile md:px-margin-desktop">
         <div className={`${styles.bg} rounded-xl p-4 md:p-6 flex flex-col md:flex-row items-center justify-between gap-4 border-r-4 ${styles.border}`}>
           <div className="flex items-center gap-4">
             <div className={`${styles.iconBg} p-2 rounded-full flex items-center justify-center`}>
@@ -73,7 +73,7 @@ export default async function AnnouncementBanner() {
               rel="noopener noreferrer"
               className="flex items-center gap-1 text-label-md text-primary hover:underline group shrink-0"
             >
-              <span>عرض التفاصيل</span>
+              <span>{announcement.link_label}</span>
               <ChevronLeft className="w-[18px] h-[18px] group-hover:-translate-x-1 transition-transform" />
             </a>
           )}

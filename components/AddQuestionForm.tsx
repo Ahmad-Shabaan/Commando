@@ -12,6 +12,7 @@ export default function AddQuestionForm() {
   const [title, setTitle] = useState("");
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -93,10 +94,14 @@ export default function AddQuestionForm() {
       }
 
       setTitle("");
+      setSuccess(true);
       router.refresh();
     } catch {
       setError("حدث خطأ في الاتصال");
     } finally {
+      setTimeout(() => {
+        setSuccess(false);
+      }, 5000);
       setSubmitting(false);
     }
   }
@@ -125,7 +130,10 @@ export default function AddQuestionForm() {
             className="w-full bg-surface-container-low border-0 border-b-2 border-secondary focus:ring-0 focus:border-primary text-on-surface text-body-md px-4 py-3 rounded-t-lg transition-colors outline-none"
           />
           {error && (
-            <p className="text-error text-caption mt-2">{error}</p>
+            <p className="text-error text-sm mt-2">{error}</p>
+          )}
+          {success && (
+            <p className="text-primary text-sm mt-2">تم تسجيل سؤالك، وسيتم الإجابة عليه في أقرب وقت.</p>
           )}
         </div>
         <button
@@ -133,7 +141,7 @@ export default function AddQuestionForm() {
           disabled={submitting}
           className="w-full bg-primary text-on-primary text-label-md py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-50"
         >
-          {submitting ? "جاري الإرسال..." : <span className="flex items-center gap-2 justify-center">
+          {submitting ? "جاري الإرسال..." : <span className="flex items-center gap-2 justify-center cursor-pointer">
             <SendHorizontal className="size-4 sm:size-5" />
             نشر السؤال
           </span>}
