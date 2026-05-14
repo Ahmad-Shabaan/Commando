@@ -3,6 +3,7 @@ import { IBM_Plex_Sans_Arabic, Geist } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body className="bg-background text-on-background font-body-md min-h-screen flex flex-col" suppressHydrationWarning>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

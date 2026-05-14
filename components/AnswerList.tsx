@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { ScrollText } from 'lucide-react';
 
 interface Answer {
   id: number;
@@ -47,11 +48,12 @@ export default function AnswerList({ questionId }: { questionId: number }) {
   return (
     <div className="space-y-2 mt-4 list-none">
       {answers.map((answer) => (
-        <div key={answer.id} className="flex items-start gap-2 text-base md:text-lg">
-          <span className="text-primary shrink-0 mt-0.5">•</span>
-          <span>{answer.content}</span>
+        <div key={answer.id} className="flex items-center gap-2 text-base md:text-lg ">
+          <span className="block flex-1 min-w-0 break-words whitespace-pre-wrap leading-relaxed">{answer.content}</span>
+          <span className="shrink-0"><ScrollText className="size-4" /></span>
         </div>
       ))}
+
     </div>
   );
 }

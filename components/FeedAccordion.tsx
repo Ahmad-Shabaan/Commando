@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Accordion,
   AccordionContent,
@@ -15,15 +13,22 @@ interface Question {
   created_at: string;
 }
 
-export default function FeedAccordion({ questions }: { questions: Question[] }) {
+export default function FeedAccordion({
+  questions,
+  openValue,
+}: {
+  questions: Question[];
+  openValue?: string | null;
+}) {
   return (
-    <Accordion className="space-y-4">
+    <Accordion className="space-y-4" defaultValue={openValue ? [openValue] : []}>
       {questions.map((question) => (
         <AccordionItem
           key={question.id}
           value={String(question.id)}
-          className="bg-surface-container-low rounded-xl border border-outline-variant/20 overflow-hidden"
+          className="text-right bg-surface-container-low rounded-xl border border-outline-variant/20 overflow-hidden shadow-md"
           data-animate-feed
+          data-question-id={question.id}
         >
           <AccordionTrigger className="text-label-md p-4 cursor-pointer text-on-surface justify-between w-full flex items-center data-open:bg-surface-container transition-colors hover:bg-surface-container">
             <QuestionCard question={question} />

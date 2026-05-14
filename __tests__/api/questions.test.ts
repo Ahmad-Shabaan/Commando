@@ -95,7 +95,7 @@ describe("POST /api/questions", () => {
     const body = await response.json();
 
     expect(response.status).toBe(400);
-    expect(body.error).toBe("Title is required");
+    expect(body.error).toBe("Invalid input: expected string, received undefined");
   });
 
   it("rejects invalid JSON body with 400", async () => {

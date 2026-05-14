@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>البوابة المعرفية العسكرية - دليل المعرفة</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#c6c8bb",
+                        "inverse-primary": "#bdcd9d",
+                        "on-primary-container": "#aab98c",
+                        "surface-container-low": "#f5f3ef",
+                        "surface-container-high": "#eae8e4",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#cbc6bc",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#d9e9b8",
+                        "background": "#fbf9f5",
+                        "on-primary-fixed": "#141f02",
+                        "on-background": "#1b1c1a",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dbdad6",
+                        "on-secondary-fixed": "#231b01",
+                        "primary": "#273312",
+                        "on-tertiary-container": "#b8b2a9",
+                        "secondary-fixed-dim": "#d6c599",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#f3e1b3",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#3e4b27",
+                        "surface-tint": "#55633d",
+                        "primary-fixed-dim": "#bdcd9d",
+                        "on-tertiary-fixed": "#1d1b16",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#695e39",
+                        "outline": "#76786d",
+                        "on-surface-variant": "#45483e",
+                        "surface-variant": "#e4e2de",
+                        "surface-container-highest": "#e4e2de",
+                        "primary-container": "#3d4a26",
+                        "surface-container": "#efeeea",
+                        "surface": "#fbf9f5",
+                        "surface-bright": "#fbf9f5",
+                        "tertiary": "#312f28",
+                        "secondary-container": "#f3e1b3",
+                        "on-tertiary-fixed-variant": "#49463f",
+                        "on-secondary-fixed-variant": "#514624",
+                        "tertiary-fixed": "#e8e2d8",
+                        "on-secondary-container": "#70633f",
+                        "tertiary-container": "#48453e",
+                        "on-surface": "#1b1c1a",
+                        "inverse-on-surface": "#f2f0ed",
+                        "inverse-surface": "#30312e",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "margin-desktop": "48px",
+                        "unit": "8px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["IBM Plex Sans Arabic"],
+                        "headline-lg-mobile": ["IBM Plex Sans Arabic"],
+                        "label-md": ["IBM Plex Sans Arabic"],
+                        "body-md": ["IBM Plex Sans Arabic"],
+                        "caption": ["IBM Plex Sans Arabic"],
+                        "headline-md": ["IBM Plex Sans Arabic"],
+                        "display-lg": ["IBM Plex Sans Arabic"],
+                        "headline-lg": ["IBM Plex Sans Arabic"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Accordion Custom Logic for pure HTML/CSS state if possible, otherwise just static representation as requested */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim border-b border-outline-variant/30 dark:border-outline-variant/10 sticky top-0 z-50 w-full flat no shadows">
+<div class="flex flex-row-reverse justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary" style="font-size: 28px;">account_balance</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">البوابة المعرفية العسكرية</h1>
+</div>
+<div>
+<button class="p-2 rounded-full hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors text-primary dark:text-inverse-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative w-full h-[500px] md:h-[600px] bg-surface-container-high overflow-hidden">
+<img alt="Hero Background" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-60" src="https://lh3.googleusercontent.com/aida/ADBb0uhONoKsQ5fdujqDZrdY7ASJe5YLADJSo-h1AZcB-lnk_fPyxF40MfrlW5bqteXbbxqkpz2-inus7Ls1Y0z9BMUN7sTUWin7iRTeF-2NsI0AdBvH4P9nkRbp82eZas6WEjyLxfZBNrY5984lcpTEoE8TJ9IrwQRaLQdzFa5WmIdPS3EKYmdrxqG4qs0mlewgVCbk9FYZG3-vUZoPOCgLBZPu1QsPP_w3iwwEkqLkklhPDV1e_u8tThPTTjc"/>
+<div class="absolute inset-0 bg-gradient-to-l from-primary/80 to-transparent"></div>
+<div class="relative z-10 flex items-center h-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="max-w-2xl text-on-primary">
+<h2 class="font-display-lg text-display-lg text-on-primary mb-4 shadow-sm">دليل المعرفة للخدمة العسكرية</h2>
+<p class="font-headline-lg-mobile md:font-headline-lg text-on-primary mb-6 text-inverse-primary">معلومات وإرشادات مهمة لكل من يبدأ أو يؤدي خدمته العسكرية</p>
+<p class="font-body-lg text-body-lg text-on-primary/90 bg-primary/40 p-4 rounded-xl border border-inverse-primary/20 backdrop-blur-sm">
+                        إجابات واضحة ومباشرة على أكثر الأسئلة شيوعًا داخل الخدمة العسكرية
+                    </p>
+</div>
+</div>
+</section><section class="w-full bg-background py-8">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="bg-[#e0f2f1] dark:bg-tertiary-container/20 rounded-xl p-4 md:p-6 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4 border-r-4 border-primary">
+<div class="flex items-center gap-4">
+<div class="bg-primary/10 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">info</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-primary font-bold mb-1">تنبيه هام</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">تم تحديث مواعيد الفحص الطبي للمتقدمين الجدد. يرجى مراجعة الجدول الزمني المحدث.</p>
+</div>
+</div>
+<a class="flex items-center gap-1 font-label-md text-label-md text-primary hover:underline group" href="#">
+<span>عرض التفاصيل</span>
+<span class="material-symbols-outlined text-[18px] group-hover:-translate-x-1 transition-transform">chevron_left</span>
+</a>
+</div>
+</div>
+</section>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Questions Feed (Accordion) -->
+<div class="md:col-span-8 space-y-8">
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 md:p-8">
+<h3 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">quiz</span>
+                        الأسئلة الشائعة
+                    </h3>
+<div class="space-y-4">
+<!-- Accordion Item 1 -->
+<details class="group bg-surface-container-low rounded-xl border border-outline-variant/20 overflow-hidden" open="">
+<summary class="flex justify-between items-center font-label-md text-label-md p-4 cursor-pointer hover:bg-surface-container transition-colors text-on-surface">
+<span>ماذا يجب أن أفعل في أول يوم لي في الخدمة العسكرية؟</span>
+<span class="material-symbols-outlined text-outline group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-4 pt-0 text-on-surface-variant font-body-md border-t border-outline-variant/10 bg-surface">
+<ul class="space-y-2 mt-4 list-none">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">check_circle</span>
+<span>الحضور في الموعد المحدد</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">check_circle</span>
+<span>إحضار جميع الأوراق المطلوبة</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">check_circle</span>
+<span>الالتزام بالتعليمات الصادرة</span>
+</li>
+</ul>
+</div>
+</details>
+<!-- Accordion Item 2 -->
+<details class="group bg-surface-container-low rounded-xl border border-outline-variant/20 overflow-hidden">
+<summary class="flex justify-between items-center font-label-md text-label-md p-4 cursor-pointer hover:bg-surface-container transition-colors text-on-surface">
+<span>ما الأشياء المسموح بإحضارها إلى الوحدة العسكرية؟</span>
+<span class="material-symbols-outlined text-outline group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-4 pt-0 text-on-surface-variant font-body-md border-t border-outline-variant/10 bg-surface">
+<ul class="space-y-2 mt-4 list-none">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">inventory_2</span>
+<span>الأدوات الشخصية الأساسية</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">checkroom</span>
+<span>الملابس الضرورية</span>
+</li>
+<li class="flex items-start gap-2 text-error">
+<span class="material-symbols-outlined text-[20px] mt-0.5">block</span>
+<span>يمنع إدخال أي أدوات غير مصرح بها</span>
+</li>
+</ul>
+</div>
+</details>
+<!-- Accordion Item 3 -->
+<details class="group bg-surface-container-low rounded-xl border border-outline-variant/20 overflow-hidden">
+<summary class="flex justify-between items-center font-label-md text-label-md p-4 cursor-pointer hover:bg-surface-container transition-colors text-on-surface">
+<span>كيف أستعد بدنيًا قبل بدء الخدمة العسكرية؟</span>
+<span class="material-symbols-outlined text-outline group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-4 pt-0 text-on-surface-variant font-body-md border-t border-outline-variant/10 bg-surface">
+<ul class="space-y-2 mt-4 list-none">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">fitness_center</span>
+<span>الحفاظ على اللياقة البدنية</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">bedtime</span>
+<span>الحصول على قسط كافٍ من النوم</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">medical_services</span>
+<span>الالتزام بالفحوصات الطبية</span>
+</li>
+</ul>
+</div>
+</details>
+</div>
+</div>
+</div>
+<!-- Add Question Form (Side/Bottom depending on breakpoint) -->
+<div class="md:col-span-4">
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 md:p-8 sticky top-[100px]">
+<h3 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">add_comment</span>
+                        إضافة سؤال
+                    </h3>
+<form class="space-y-6">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2" for="question_title">عنوان السؤال</label>
+<input class="w-full bg-surface-container-low border-0 border-b-2 border-secondary focus:ring-0 focus:border-primary text-on-surface font-body-md px-4 py-3 rounded-t-lg transition-colors" id="question_title" placeholder="اكتب سؤالك هنا..." type="text"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2" for="question_details">تفاصيل إضافية (اختياري)</label>
+<textarea class="w-full bg-surface-container-low border-0 border-b-2 border-secondary focus:ring-0 focus:border-primary text-on-surface font-body-md px-4 py-3 rounded-t-lg transition-colors resize-none" id="question_details" placeholder="أضف أي تفاصيل أخرى قد تساعد في الإجابة..." rows="4"></textarea>
+</div>
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 shadow-[0_2px_4px_rgba(39,51,18,0.1)]" type="button">
+<span class="material-symbols-outlined text-[20px]">send</span>
+                            نشر السؤال
+                        </button>
+</form>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-low border-t border-outline-variant/20 flat no shadows mt-auto">
+<div class="flex flex-col md:flex-row-reverse justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-8 gap-gutter max-w-container-max mx-auto">
+<div class="font-label-md text-label-md font-bold text-primary">
+                © ٢٠٢٤ البوابة المعرفية العسكرية. جميع الحقوق محفوظة.
+            </div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors opacity-80 hover:opacity-100" href="#">الخصوصية</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors opacity-80 hover:opacity-100" href="#">الشروط والأحكام</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors opacity-80 hover:opacity-100" href="#">اتصل بنا</a>
+</div>
+</div>
+</footer>
+</body></html>

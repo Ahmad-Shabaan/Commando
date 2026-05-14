@@ -8,7 +8,7 @@ export default function Hero() {
         suppressHydrationWarning
       />
       <div className="absolute inset-0 bg-gradient-to-l from-primary/80 to-transparent" suppressHydrationWarning />
-      <div className="relative z-10 flex items-center h-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop" suppressHydrationWarning>
+      <div className="relative z-10 flex items-center h-full container w-full mx-auto px-margin-mobile md:px-margin-desktop" suppressHydrationWarning>
         <div className="max-w-2xl text-on-primary" suppressHydrationWarning>
           <h2 className="text-display-lg text-on-primary mb-4 px-2 md:px-4" suppressHydrationWarning>
             دليل المعرفة للخدمة العسكرية
