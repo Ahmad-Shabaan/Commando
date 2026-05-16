@@ -108,10 +108,10 @@ export default function AddQuestionForm() {
 
   return (
     <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 md:p-8">
-      <h3 className="text-headline-md text-primary mb-6 flex items-center gap-2">
+      <h2 className="text-headline-md text-primary mb-6 flex items-center gap-2">
         <MessageSquarePlus className="size-4 sm:size-5" />
         إضافة سؤال
-      </h3>
+      </h2>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label

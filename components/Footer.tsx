@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="text-label-md text-primary font-bold">
           © ٢٠٢٦ البوابة المعرفية العسكرية. جميع الحقوق محفوظة.
         </div>
-        <div className="flex flex-wrap justify-center gap-6">
+        <nav aria-label="روابط التذييل" className="flex flex-wrap justify-center gap-6">
           <a
             className="text-body-md text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100"
             href="#"
@@ -27,7 +27,7 @@ export default function Footer() {
           >
             اتصل بنا
           </a>
-        </div>
+        </nav>
       </div>
     </footer>
   );

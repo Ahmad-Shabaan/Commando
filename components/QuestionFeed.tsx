@@ -62,9 +62,9 @@ export default function QuestionFeed() {
   if (loading) {
     return (
       <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 md:p-8">
-        <h3 className="text-headline-md text-primary mb-6 flex items-center gap-2">
+        <h2 className="text-headline-md text-primary mb-6 flex items-center gap-2">
           الأسئلة الشائعة
-        </h3>
+        </h2>
         <p className="text-body-md text-on-surface-variant">
           جاري تحميل الأسئلة...
         </p>
@@ -74,9 +74,9 @@ export default function QuestionFeed() {
 
   return (
     <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 md:p-8">
-      <h3 className="text-headline-md text-primary mb-6 flex items-center gap-2">
+      <h2 className="text-headline-md text-primary mb-6 flex items-center gap-2">
         الأسئلة الشائعة
-      </h3>
+      </h2>
 
       <div className="relative mb-6">
         <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-outline" size={20} />
