@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WebsiteJsonLd from "@/components/WebsiteJsonLd";
-
+import { SITE_URL as siteUrl } from "@/lib/types";
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
@@ -13,8 +13,6 @@ const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
   subsets: ["arabic"],
   weight: ["400", "600", "700"],
 });
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://komando.store";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -94,7 +92,6 @@ export default function RootLayout({
     >
       <body
         className="bg-background text-on-background font-body-md min-h-screen flex flex-col"
-        suppressHydrationWarning
       >
         <WebsiteJsonLd />
         <Header />

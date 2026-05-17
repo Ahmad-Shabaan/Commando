@@ -1,17 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ScrollText } from 'lucide-react';
+import { ScrollText, ChevronLeft } from "lucide-react";
+import AnswerContent from "./AnswerContent";
+import type { Answer } from "@/lib/types";
+import { parseContentItems } from "@/lib/types";
+import Link from "next/link";
 
-interface Answer {
-  id: number;
-  question_id: number;
-  content: string;
-  created_at: string;
-}
-
-export default function AnswerList({ questionId }: { questionId: number }) {
-  const [answers, setAnswers] = useState<Answer[]>([]);
+export default function AnswerList({ questionId, questionSlug }: { questionId: number, questionSlug: string | null }) {
+  const [answer, setAnswer] = useState<Answer | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -19,9 +16,9 @@ export default function AnswerList({ questionId }: { questionId: number }) {
       try {
         const res = await fetch(`/api/answers?questionId=${questionId}`);
         const data = await res.json();
-        setAnswers(data);
+        setAnswer(data[0]);
       } catch {
-        setAnswers([]);
+        setAnswer(null);
       } finally {
         setLoading(false);
       }
@@ -37,23 +34,40 @@ export default function AnswerList({ questionId }: { questionId: number }) {
     );
   }
 
-  if (answers.length === 0) {
+  if (answer === null) {
     return (
-      <div className="p-4 pt-0 text-on-surface-variant  text-base md:text-lg">
+      <div className="p-4 pt-0 text-on-surface-variant text-base md:text-lg">
         لا توجد إجابات بعد.
       </div>
     );
   }
 
   return (
-    <div className="space-y-2 mt-4 list-none">
-      {answers.map((answer) => (
-        <div key={answer.id} className="flex items-center gap-2 text-base md:text-lg ">
-          <span className="block flex-1 min-w-0 break-words whitespace-pre-wrap leading-relaxed">{answer.content}</span>
-          <span className="shrink-0"><ScrollText className="size-4" /></span>
-        </div>
-      ))}
+    <>
+      <div className="mt-4">
 
-    </div>
+        <div className="space-y-4 mt-4 list-none">
+          {answer && (
+            <div className="flex items-start gap-2 text-base md:text-lg">
+              <span className="block flex-1 min-w-0">
+                {answer.content}
+              </span>
+              <ScrollText className="size-4 shrink-0 mt-1 text-outline-variant" aria-hidden="true" />
+            </div>
+          )}
+        </div>
+      </div>
+      {!answer.is_short && questionSlug && (
+        <div className="mt-6 pt-5 border-t border-outline-variant/10 flex justify-end">
+          <Link
+            href={`/tajneed/${questionSlug}`}
+            className="inline-flex items-center gap-2 text-primary font-bold text-label-md focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/50 rounded-lg"
+          >
+            اقرأ الإجابة الكاملة
+            <ChevronLeft size={18} strokeWidth={2.5} aria-hidden="true" />
+          </Link>
+        </div>
+      )}
+    </>
   );
 }

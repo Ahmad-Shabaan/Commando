@@ -1,16 +1,22 @@
 import Hero from "@/components/Hero";
 import AnnouncementBanner from "@/components/AnnouncementBanner";
 import ClientHome from "@/components/ClientHome";
-import FaqJsonLd from "@/components/FaqJsonLd";
+import sql from "@/lib/db";
+import type { Question } from "@/lib/types";
 
 export default async function Home() {
+  const initialQuestions = await sql`
+    SELECT id, title, created_at, slug 
+    FROM questions 
+    ORDER BY created_at DESC
+  `;
+
   return (
     <>
-      <FaqJsonLd />
       <Hero />
       <AnnouncementBanner />
       <main>
-        <ClientHome />
+        <ClientHome initialQuestions={initialQuestions as Question[]} />
       </main>
     </>
   );

@@ -11,6 +11,20 @@ interface Answer {
   id: number;
   question_id: number;
   content: string;
+  content_items?: unknown;
+}
+
+function flattenJsonLd(a: Answer): string {
+  if (!a.content_items) return a.content;
+  const items = Array.isArray(a.content_items)
+    ? a.content_items
+    : typeof a.content_items === "string"
+      ? (() => { try { return JSON.parse(a.content_items); } catch { return []; } })()
+      : [];
+  if (Array.isArray(items) && items.length > 0) {
+    return items.map((i: any) => i.text || i.label || "").join(" ");
+  }
+  return a.content;
 }
 
 interface FaqItem {
@@ -43,8 +57,7 @@ export default function FaqJsonLd() {
             const answers: Answer[] = await answersRes.json();
             if (answers.length === 0) return null;
 
-            // Combine all answers into one text for the schema
-            const combinedAnswer = answers.map((a) => a.content).join(" ");
+            const combinedAnswer = answers.map((a) => flattenJsonLd(a)).join(" ");
             return { question: q.title, answer: combinedAnswer };
           } catch {
             return null;

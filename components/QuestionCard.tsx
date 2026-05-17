@@ -1,9 +1,5 @@
 import DOMPurify from "isomorphic-dompurify";
-
-interface Question {
-  id: number;
-  title: string;
-}
+import type { Question } from "@/lib/types";
 
 export default function QuestionCard({ question }: { question: Question }) {
   const cleanTitle = DOMPurify.sanitize(question.title);

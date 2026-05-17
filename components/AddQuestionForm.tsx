@@ -22,7 +22,6 @@ export default function AddQuestionForm() {
     const ctx = gsap.context(() => {
       input.addEventListener("focus", () => {
         gsap.to(input, {
-          borderBottomColor: "var(--color-primary)",
           scaleX: 1.02,
           duration: 0.3,
           ease: "power2.out",
@@ -31,7 +30,6 @@ export default function AddQuestionForm() {
       });
       input.addEventListener("blur", () => {
         gsap.to(input, {
-          borderBottomColor: "var(--color-secondary)",
           scaleX: 1,
           duration: 0.3,
           ease: "power2.out",
@@ -107,42 +105,60 @@ export default function AddQuestionForm() {
   }
 
   return (
-    <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 md:p-8">
-      <h2 className="text-headline-md text-primary mb-6 flex items-center gap-2">
-        <MessageSquarePlus className="size-4 sm:size-5" />
+    <div className="bg-gradient-to-b from-surface-container-lowest to-surface-container-low border border-outline-variant/30 rounded-2xl p-6 md:p-8 shadow-sm relative overflow-hidden">
+      <h2 className="text-headline-sm md:text-headline-md text-primary mb-6 flex items-center gap-2 font-bold">
+        <MessageSquarePlus className="size-5 sm:size-6" />
         إضافة سؤال
       </h2>
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
         <div>
           <label
-            className="block text-label-md text-on-surface mb-2"
+            className="block text-label-md text-on-surface mb-2 font-bold"
             htmlFor="question_title"
           >
             عنوان السؤال
           </label>
-          <input
-            ref={inputRef}
-            id="question_title"
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder="اكتب سؤالك هنا..."
-            className="w-full bg-surface-container-low border-0 border-b-2 border-secondary focus:ring-0 focus:border-primary text-on-surface text-body-md px-4 py-3 rounded-t-lg transition-colors outline-none"
-          />
+          <div className="relative">
+            <input
+              ref={inputRef}
+              id="question_title"
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="اكتب سؤالك هنا..."
+              className="w-full
+                        bg-surface
+                        border-2 border-outline-variant/50
+                        focus:border-primary
+                        focus:ring-0
+                        focus:outline-none
+                        focus:shadow-none
+                        text-on-surface text-body-md
+                        px-4 py-3
+                        rounded-xl
+                        transition-colors"
+            />
+          </div>
           {error && (
-            <p className="text-error text-sm mt-2">{error}</p>
+            <p className="text-error text-sm mt-2 flex items-center gap-1 animate-in fade-in slide-in-from-top-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-error inline-block" />
+              {error}
+            </p>
           )}
           {success && (
-            <p className="text-primary text-sm mt-2">تم تسجيل سؤالك، وسيتم الإجابة عليه في أقرب وقت.</p>
+            <p className="text-primary text-sm mt-2 flex items-center gap-1 animate-in fade-in slide-in-from-top-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block" />
+              تم تسجيل سؤالك، وسيتم الإجابة عليه قريباً.
+            </p>
           )}
         </div>
         <button
           type="submit"
           disabled={submitting}
-          className="w-full bg-primary text-on-primary text-label-md py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-50"
+          className="w-full bg-primary text-on-primary text-label-md font-bold py-3.5 px-6 rounded-xl cursor-pointer hover:bg-primary/90 transition-all hover:-translate-y-0.5 active:translate-y-0 shadow-sm hover:shadow-md disabled:opacity-50 disabled:hover:translate-y-0 disabled:hover:shadow-none disabled:cursor-not-allowed"
         >
-          {submitting ? "جاري الإرسال..." : <span className="flex items-center gap-2 justify-center cursor-pointer">
-            <SendHorizontal className="size-4 sm:size-5" />
+          {submitting ? "جاري الإرسال..." : <span className="flex items-center gap-2 justify-center">
+            <SendHorizontal className="size-5" />
             نشر السؤال
           </span>}
         </button>

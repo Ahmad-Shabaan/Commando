@@ -1,8 +1,4 @@
-interface Question {
-  id: number;
-  title: string;
-  created_at: string;
-}
+import type { Question } from "@/lib/types";
 
 let questions: Question[] = [];
 

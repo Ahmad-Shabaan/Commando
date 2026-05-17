@@ -25,9 +25,9 @@ export async function GET(request: NextRequest) {
 
   try {
     const rows = await sql`
-      SELECT id, question_id, content, created_at FROM answers
+      SELECT id, question_id, content, content_items, is_short, created_at FROM answers
       WHERE question_id = ${questionId}
-      ORDER BY created_at ASC
+      ORDER BY is_short DESC, created_at ASC
     `;
     setCachedAnswers(questionId, rows);
     return NextResponse.json(rows, {
@@ -53,12 +53,23 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: firstError }, { status: 400 });
   }
 
-  const { questionId, content } = parsed.data;
+  const { questionId, content, content_items } = parsed.data;
 
   try {
+    if (content_items) {
+      const [row] = await sql`
+        INSERT INTO answers (question_id, content, content_items)
+        VALUES (${questionId}, '', ${JSON.stringify(content_items)})
+        RETURNING id, question_id, content, content_items, is_short, created_at
+      `;
+      invalidateCache(questionId);
+      return NextResponse.json(row, { status: 201 });
+    }
+
     const [row] = await sql`
-      INSERT INTO answers (question_id, content) VALUES (${questionId}, ${content})
-      RETURNING id, question_id, content, created_at
+      INSERT INTO answers (question_id, content)
+      VALUES (${questionId}, ${content})
+      RETURNING id, question_id, content, content_items, is_short, created_at
     `;
     invalidateCache(questionId);
     return NextResponse.json(row, { status: 201 });
