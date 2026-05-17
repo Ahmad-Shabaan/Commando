@@ -21,7 +21,7 @@ export default async function CategoryPage() {
     ) as snippet
     FROM questions q
     WHERE slug IS NOT NULL
-    ORDER BY created_at DESC
+    ORDER BY created_at ASC
   `;
 
   return (

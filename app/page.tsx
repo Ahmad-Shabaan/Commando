@@ -8,7 +8,7 @@ export default async function Home() {
   const initialQuestions = await sql`
     SELECT id, title, created_at, slug 
     FROM questions 
-    ORDER BY created_at DESC
+    ORDER BY created_at ASC
   `;
 
   return (
