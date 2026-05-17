@@ -33,8 +33,7 @@ export default function AnswerList({ questionId, questionSlug }: { questionId: n
       </div>
     );
   }
-
-  if (answer === null) {
+  if (answer === null || answer === undefined) {
     return (
       <div className="p-4 pt-0 text-on-surface-variant text-base md:text-lg">
         لا توجد إجابات بعد.
@@ -45,7 +44,6 @@ export default function AnswerList({ questionId, questionSlug }: { questionId: n
   return (
     <>
       <div className="mt-4">
-
         <div className="space-y-4 mt-4 list-none">
           {answer && (
             <div className="flex items-start gap-2 text-base md:text-lg">
@@ -57,7 +55,7 @@ export default function AnswerList({ questionId, questionSlug }: { questionId: n
           )}
         </div>
       </div>
-      {!answer.is_short && questionSlug && (
+      {answer && !answer.is_short && questionSlug && (
         <div className="mt-6 pt-5 border-t border-outline-variant/10 flex justify-end">
           <Link
             href={`/tajneed/${questionSlug}`}
