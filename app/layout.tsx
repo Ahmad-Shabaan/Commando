@@ -76,6 +76,10 @@ export const metadata: Metadata = {
     google: "google8ff3c5c981d30acb",
   },
   category: "education",
+
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
